@@ -1,0 +1,48 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Stackfindover: Sign in</title>
+	<link rel="stylesheet" type="text/css" href="sst.css">
+</head>
+
+<body>
+	<div class="login-root">
+
+		<div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+			<div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+
+			</div>
+			<div class="formbg-outer">
+				<div class="formbg">
+					<div class="formbg-inner padding-horizontal--48">
+						<span class="padding-bottom--15">Sign in to your account</span>
+						<form id="stripe-login">
+							<div class="field padding-bottom--24">
+								<label for="email">Количество работников в разрезе профессий:</label>
+								<input type="number" id="input1" name="input1" min="0">
+							</div>
+							<div class="field padding-bottom--24">
+
+								<label for="password">Стоимость услуг по обучению в учебном центре:</label>
+
+
+								<input type="number" id="input2" name="input2" min="0">
+							</div>
+
+							<div class="field padding-bottom--24">
+								<input type="submit" name="submit" value="Рассчитать" onclick="multiplyInputs()">
+
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>

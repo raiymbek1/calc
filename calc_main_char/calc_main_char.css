@@ -1,0 +1,23 @@
+ #result {
+ 	font-weight: bold;
+ 	color: green;
+ }
+
+ button {
+ 	background-color: aqua;
+ 	color: black;
+ 	padding: 14px 20px;
+ 	margin: 8px 0;
+ 	border: none;
+ 	cursor: pointer;
+ 	width: 100%;
+
+ }
+
+ .wrapper {
+ 	border: 1px solid;
+ 	display: grid;
+ 	grid-template-columns: 2fr 2fr;
+ 	width: 80%;
+ 	content: center;
+ }

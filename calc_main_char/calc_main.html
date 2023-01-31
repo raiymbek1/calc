@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HTML Input Example</title>
+  <script src="slider.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="sst.css" />
+  <link rel="stylesheet" type="text/css" href="slider.css" />
+
+
+</head>
+
+<body>
+
+
+
+  <div class="login-root">
+
+    <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+      <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+
+      </div>
+      <div class="formbg-outer">
+        <div class="formbg" id="content">
+
+          <div class="formbg-inner padding-horizontal--24">
+
+            <form id="stripe-login" onsubmit="return false">
+              <div class="field padding-bottom--24">
+                <label for="email">Количество работников в разрезе профессий:</label>
+                <input type="number" id="input1" name="input1" min="0" max="10000" value="0"
+                  oninput="range1.value=value" />
+                <div>
+                  <input type="range" value="1" min="0" max="10000" id="range1" class="range blue"
+                    oninput="input1.value=value" />
+                </div>
+
+              </div>
+              <div class="field padding-bottom--24">
+                <label for="password">Стоимость услуг по обучению в учебном центре:</label>
+                <div>
+                  <input type="number" id="input2" name="input2" min="0" value="0" oninput="range2.value=value">
+
+                  <input type="range" value="1" min="0" max="10000" id="range2" class="range1 blue"
+                    oninput="input2.value=value" />
+                </div>
+              </div>
+
+              <div class="field padding-bottom--24">
+                <input type="submit" name="submit" value="Рассчитать" onclick="multiplyInputs()" class="bt_mode_submit">
+                <div style="padding-top:15px">
+                  <label for="result">Затраты на обеспечение безопасности и охраны труда общего характера:</label>
+                  <span id="result"></span>
+                  <span> тенге</span>
+                </div>
+              </div>
+          </div>
+
+          <div class="grid-item">
+            <h2 class="title">
+              Затраты на обеспечение безопасности и охраны труда общего характера
+            </h2>
+          </div>
+          </form>
+          <div class="grid-item">
+            <button onclick="changeContent(1)" class="bt_mode">
+              Затраты на проведение обучения, инструктирования и проверок знаний по
+              вопросам охраны труда работников, руководителей и лиц ответственных за
+              обеспечение охраны труда
+            </button>
+            <button onclick="changeContent(2)" class="bt_mode">
+              Затраты на обязательное страхование работника от несчастных случаев при
+              исполнении им трудовых (служебных) обязанностей
+            </button>
+            <button onclick="changeContent(3)" class="bt_mode">
+              Затраты на обеспечение средствами коллективной защиты
+            </button>
+            <button onclick="changeContent(4)" class="bt_mode">
+              Затраты на обеспечение санитарно-бытовыми помещениями и устройствами
+            </button>
+            <button onclick="changeContent(5)" class="bt_mode">
+              Затраты на проведение оценки профессиональных рисков
+            </button>
+            <button onclick="changeContent(6)" class="bt_mode">
+              Затраты на разработку, реализацию и внедрение системы управления охраны
+              труда (СУОТ)
+            </button>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    var currentContent = 1;
+    function multiplyInputs() {
+      var input1 = document.getElementById("input1").value;
+      var input2 = document.getElementById("input2").value;
+      var result = input1 * input2;
+      document.getElementById("result").innerHTML = result;
+    }
+    function multiplyInputs3() {
+      var input1 = document.getElementById("input1").value;
+      var input2 = document.getElementById("input2").value;
+      var input3 = document.getElementById("input3").value;
+      var result = input1 * input2 * input3;
+      document.getElementById("result").innerHTML = result;
+    }
+
+    const multiplyInputs6 = () => {
+      let input1 = document.getElementById("input1").value;
+      var result = input1;
+      document.getElementById("result").innerHTML = result;
+    };
+
+
+    function changeContent(contentNumber) {
+      currentContent = contentNumber;
+      if (contentNumber == 1) {
+        document.getElementById("content").innerHTML =
+
+          '<div class="login-root">' +
+
+          '<div class="box-root  flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">' +
+          '<div class="box-root   flex-flex flex-justifyContent--center">' +
+
+          '</div>' +
+          '<div class="formbg-outer">' +
+          '<div class="formbg" id="content">' +
+          '<div class="formbg-inner padding-horizontal--24">' +
+
+          '<form id="stripe-login" onsubmit="return false">' +
+
+          '<div class="field padding-bottom--24">' +
+
+          '<label for="email">Количество работников в разрезе профессий:</label>' +
+          '<div>' +
+          '<input type="number" id="input1" name="input1" min="0" max="10000" value="0" oninput="range1.value=value" />' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range1" class="range blue" oninput="input1.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<label for="password">Стоимость услуг по обучению в учебном центре:</label>' +
+          '<div>' +
+          '<input type="number" id="input2" name="input2" min="0" value="0" oninput="range2.value=value">' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range2" class="range1 blue" oninput="input2.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<input type="submit" name="submit" value="Рассчитать" onclick="multiplyInputs()" class="bt_mode_submit">' +
+          '<div style="padding-top:15px">' +
+          '<label for="result">Затраты на обучение работников: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>" +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="grid-item">' +
+          '<h2 class="title">Затраты на проведение обучения, инструктирования и проверок знаний по вопросам охраны труда работников, руководителей и лиц ответственных за обеспечение охраны труда</h2>' +
+          '</div>' +
+          '</form >' +
+          '<div class="grid-item">' +
+          '<button onclick="changeContent(1)" class="bt_mode">Затраты на проведение обучения, инструктирования и проверок знаний повопросам охраны труда работников, руководителей и лиц ответственных заобеспечение охраны труда</button>' +
+          '<button onclick="changeContent(2)" class="bt_mode">Затраты на обязательное страхование работника от несчастных случаев при исполнении им трудовых (служебных) обязанностей</button>' +
+          '<button onclick="changeContent(3)" class="bt_mode">Затраты на обеспечение средствами коллективной защиты</button>' +
+          '<button onclick="changeContent(4)" class="bt_mode">Затраты на обеспечение санитарно-бытовыми помещениями и устройствами</button>' +
+          '<button onclick="changeContent(5)" class="bt_mode">Затраты на проведение оценки профессиональных рисков</button>' +
+          '<button onclick="changeContent(6)" class="bt_mode">Затраты на разработку, реализацию и внедрение системы управления охранытруда (СУОТ)</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+
+      } else if (contentNumber == 2) {
+        document.getElementById("content").innerHTML =
+
+          '<div class="login-root">' +
+
+          '<div class="box-root  flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">' +
+          '<div class="box-root   flex-flex flex-justifyContent--center">' +
+
+          '</div>' +
+          '<div class="formbg-outer">' +
+          '<div class="formbg" id="content">' +
+          '<div class="formbg-inner padding-horizontal--24">' +
+
+          '<form id="stripe-login" onsubmit="return false">' +
+
+          '<div class="field padding-bottom--24">' +
+
+          '<label for="email">Годовой фонд оплаты труда:</label>' +
+          '<div>' +
+          '<input type="number" id="input1" name="input1" min="0" max="10000" value="0" oninput="range1.value=value" />' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range1" class="range blue" oninput="input1.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<label for="password">Страховой тариф в зависимости от класса профессионального риска:</label>' +
+          '<div>' +
+          '<input type="number" id="input2" name="input2" min="0" value="0" oninput="range2.value=value">' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range2" class="range1 blue" oninput="input2.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<input type="submit" name="submit" value="Рассчитать" onclick="multiplyInputs()" class="bt_mode_submit">' +
+          '<div style="padding-top:15px">' +
+          '<label for="result">Стоимость услуг по обучению в учебном центре: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>" +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="grid-item">' +
+          '<h2 class="title">Затраты на обязательное страхование работника от несчастных случаев</h2>' +
+          '</div>' +
+          '</form >' +
+          '<div class="grid-item">' +
+          '<button onclick="changeContent(1)" class="bt_mode">Затраты на проведение обучения, инструктирования и проверок знаний повопросам охраны труда работников, руководителей и лиц ответственных заобеспечение охраны труда</button>' +
+          '<button onclick="changeContent(2)" class="bt_mode">Затраты на обязательное страхование работника от несчастных случаев при исполнении им трудовых (служебных) обязанностей</button>' +
+          '<button onclick="changeContent(3)" class="bt_mode">Затраты на обеспечение средствами коллективной защиты</button>' +
+          '<button onclick="changeContent(4)" class="bt_mode">Затраты на обеспечение санитарно-бытовыми помещениями и устройствами</button>' +
+          '<button onclick="changeContent(5)" class="bt_mode">Затраты на проведение оценки профессиональных рисков</button>' +
+          '<button onclick="changeContent(6)" class="bt_mode">Затраты на разработку, реализацию и внедрение системы управления охранытруда (СУОТ)</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+
+
+      } else if (contentNumber == 3) {
+        document.getElementById("content").innerHTML =
+
+          '<div class="login-root">' +
+
+          '<div class="box-root  flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">' +
+          '<div class="box-root   flex-flex flex-justifyContent--center">' +
+
+          '</div>' +
+          '<div class="formbg-outer">' +
+          '<div class="formbg" id="content">' +
+          '<div class="formbg-inner padding-horizontal--24">' +
+
+          '<form id="stripe-login" onsubmit="return false">' +
+
+          '<div class="field padding-bottom--24">' +
+
+          '<label for="email">Количество рабочих цехов, оборудуемых i-ым стандартным комплектом коллективных средств защиты:</label>' +
+          '<div>' +
+          '<input type="number" id="input1" name="input1" min="0" max="10000" value="0" oninput="range1.value=value" />' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range1" class="range blue" oninput="input1.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<label for="password">Стоимость стандартного комплекта коллективных средств защиты:</label>' +
+          '<div>' +
+          '<input type="number" id="input2" name="input2" min="0" value="0" oninput="range2.value=value">' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range2" class="range1 blue" oninput="input2.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+
+          '<div class="field padding-bottom--24">' +
+          '<label for="password">Кол-во групп рабочих мест, оборудуемых i-ым стандартным комплектом коллективных средств защиты:</label>' +
+          '<div>' +
+          '<input type="number" id="input3" name="input3" min="0" value="0" oninput="range3.value=value">' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range3" class="range1 blue" oninput="input3.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<input type="submit" name="submit" value="Рассчитать" onclick="multiplyInputs3()" class="bt_mode_submit">' +
+          '<div style="padding-top:15px">' +
+          '<label for="result">Затраты на обеспечение работников СКЗ: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>" +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="grid-item">' +
+          '<h2 class="title">Затраты на обеспечение средствами коллективной защиты</h2>' +
+          '</div>' +
+          '</form >' +
+          '<div class="grid-item">' +
+          '<button onclick="changeContent(1)" class="bt_mode">Затраты на проведение обучения, инструктирования и проверок знаний повопросам охраны труда работников, руководителей и лиц ответственных заобеспечение охраны труда</button>' +
+          '<button onclick="changeContent(2)" class="bt_mode">Затраты на обязательное страхование работника от несчастных случаев при исполнении им трудовых (служебных) обязанностей</button>' +
+          '<button onclick="changeContent(3)" class="bt_mode">Затраты на обеспечение средствами коллективной защиты</button>' +
+          '<button onclick="changeContent(4)" class="bt_mode">Затраты на обеспечение санитарно-бытовыми помещениями и устройствами</button>' +
+          '<button onclick="changeContent(5)" class="bt_mode">Затраты на проведение оценки профессиональных рисков</button>' +
+          '<button onclick="changeContent(6)" class="bt_mode">Затраты на разработку, реализацию и внедрение системы управления охранытруда (СУОТ)</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+
+
+      } else if (contentNumber == 4) {
+        document.getElementById("content").innerHTML =
+
+
+
+          '<div class="login-root">' +
+
+          '<div class="box-root  flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">' +
+          '<div class="box-root   flex-flex flex-justifyContent--center">' +
+
+          '</div>' +
+          '<div class="formbg-outer">' +
+          '<div class="formbg" id="content">' +
+          '<div class="formbg-inner padding-horizontal--24">' +
+
+          '<form id="stripe-login" onsubmit="return false">' +
+
+          '<div class="field padding-bottom--24">' +
+
+          '<label for="email">Количество приобретаемых i-го оборудования и устройств для санитарно-бытового помещения:</label>' +
+          '<div>' +
+          '<input type="number" id="input1" name="input1" min="0" max="10000" value="0" oninput="range1.value=value" />' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range1" class="range blue" oninput="input1.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<label for="password">Цена i-го оборудования и устройства:</label>' +
+          '<div>' +
+          '<input type="number" id="input2" name="input2" min="0" value="0" oninput="range2.value=value">' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range2" class="range1 blue" oninput="input2.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+
+          '<div class="field padding-bottom--24">' +
+          '<label for="password">Кол-во санитарно-бытовых помещений (цех, служба и т.д.):</label>' +
+          '<div>' +
+          '<input type="number" id="input3" name="input3" min="0" value="0" oninput="range3.value=value">' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range3" class="range1 blue" oninput="input3.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<input type="submit" name="submit" value="Рассчитать" onclick="multiplyInputs3()" class="bt_mode_submit">' +
+          '<div style="padding-top:15px">' +
+          '<label for="result">Затраты на оснащение санитарно-бытовых помещении и приобретение устройств: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>" +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="grid-item">' +
+          '<h2 class="title">Затраты на обеспечение санитарно-бытовыми помещениями и устройствами</h2>' +
+          '</div>' +
+          '</form >' +
+          '<div class="grid-item">' +
+          '<button onclick="changeContent(1)" class="bt_mode">Затраты на проведение обучения, инструктирования и проверок знаний повопросам охраны труда работников, руководителей и лиц ответственных заобеспечение охраны труда</button>' +
+          '<button onclick="changeContent(2)" class="bt_mode">Затраты на обязательное страхование работника от несчастных случаев при исполнении им трудовых (служебных) обязанностей</button>' +
+          '<button onclick="changeContent(3)" class="bt_mode">Затраты на обеспечение средствами коллективной защиты</button>' +
+          '<button onclick="changeContent(4)" class="bt_mode">Затраты на обеспечение санитарно-бытовыми помещениями и устройствами</button>' +
+          '<button onclick="changeContent(5)" class="bt_mode">Затраты на проведение оценки профессиональных рисков</button>' +
+          '<button onclick="changeContent(6)" class="bt_mode">Затраты на разработку, реализацию и внедрение системы управления охранытруда (СУОТ)</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+
+
+      } else if (contentNumber == 5) {
+        document.getElementById("content").innerHTML =
+
+          '<div class="login-root">' +
+
+          '<div class="box-root  flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">' +
+          '<div class="box-root   flex-flex flex-justifyContent--center">' +
+
+          '</div>' +
+          '<div class="formbg-outer">' +
+          '<div class="formbg" id="content">' +
+          '<div class="formbg-inner padding-horizontal--24">' +
+
+          '<form id="stripe-login" onsubmit="return false">' +
+
+          '<div class="field padding-bottom--24">' +
+
+          '<label for="email">Стоимость услуг ОПР на 1 замер рабочего места:</label>' +
+          '<div>' +
+          '<input type="number" id="input1" name="input1" min="0" max="10000" value="0" oninput="range1.value=value" />' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range1" class="range blue" oninput="input1.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<label for="password">Количество профессий (рабочих мест), подлежащие оценке:</label>' +
+          '<div>' +
+          '<input type="number" id="input2" name="input2" min="0" value="0" oninput="range2.value=value">' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range2" class="range1 blue" oninput="input2.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<input type="submit" name="submit" value="Рассчитать" onclick="multiplyInputs()" class="bt_mode_submit">' +
+          '<div style="padding-top:15px">' +
+          '<label for="result">Затраты на проведение ОПР: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>" +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="grid-item">' +
+          '<h2 class="title">Затраты на проведение оценки профессиональных рисков</h2>' +
+          '</div>' +
+          '</form >' +
+          '<div class="grid-item">' +
+          '<button onclick="changeContent(1)" class="bt_mode">Затраты на проведение обучения, инструктирования и проверок знаний повопросам охраны труда работников, руководителей и лиц ответственных заобеспечение охраны труда</button>' +
+          '<button onclick="changeContent(2)" class="bt_mode">Затраты на обязательное страхование работника от несчастных случаев при исполнении им трудовых (служебных) обязанностей</button>' +
+          '<button onclick="changeContent(3)" class="bt_mode">Затраты на обеспечение средствами коллективной защиты</button>' +
+          '<button onclick="changeContent(4)" class="bt_mode">Затраты на обеспечение санитарно-бытовыми помещениями и устройствами</button>' +
+          '<button onclick="changeContent(5)" class="bt_mode">Затраты на проведение оценки профессиональных рисков</button>' +
+          '<button onclick="changeContent(6)" class="bt_mode">Затраты на разработку, реализацию и внедрение системы управления охранытруда (СУОТ)</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+
+      } else if (contentNumber == 6) {
+        document.getElementById("content").innerHTML =
+
+          '<div class="login-root">' +
+
+          '<div class="box-root  flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">' +
+          '<div class="box-root   flex-flex flex-justifyContent--center">' +
+
+          '</div>' +
+          '<div class="formbg-outer">' +
+          '<div class="formbg" id="content">' +
+          '<div class="formbg-inner padding-horizontal--24">' +
+
+          '<form id="stripe-login" onsubmit="return false">' +
+
+          '<div class="field padding-bottom--24">' +
+
+          '<label for="email">Затраты:</label>' +
+          '<div>' +
+          '<input type="number" id="input1" name="input1" min="0" max="10000" value="0" oninput="range1.value=value" />' +
+
+          '<input type="range" value="1" min="0" max="10000" id="range1" class="range blue" oninput="input1.value=value" />' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="field padding-bottom--24">' +
+          '<input type="submit" name="submit" value="Рассчитать" onclick="multiplyInputs6()" class="bt_mode_submit">' +
+          '<div style="padding-top:15px">' +
+          '<label for="result">Затраты:</label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>" +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+
+          '<div class="grid-item">' +
+          '<h2 class="title">Затраты на разработку, реализацию и внедрение системы управления охраны труда (СУОТ)</h2>' +
+          '</div>' +
+          '</form >' +
+          '<div class="grid-item">' +
+          '<button onclick="changeContent(1)" class="bt_mode">Затраты на проведение обучения, инструктирования и проверок знаний повопросам охраны труда работников, руководителей и лиц ответственных заобеспечение охраны труда</button>' +
+          '<button onclick="changeContent(2)" class="bt_mode">Затраты на обязательное страхование работника от несчастных случаев при исполнении им трудовых (служебных) обязанностей</button>' +
+          '<button onclick="changeContent(3)" class="bt_mode">Затраты на обеспечение средствами коллективной защиты</button>' +
+          '<button onclick="changeContent(4)" class="bt_mode">Затраты на обеспечение санитарно-бытовыми помещениями и устройствами</button>' +
+          '<button onclick="changeContent(5)" class="bt_mode">Затраты на проведение оценки профессиональных рисков</button>' +
+          '<button onclick="changeContent(6)" class="bt_mode">Затраты на разработку, реализацию и внедрение системы управления охранытруда (СУОТ)</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+      }
+    }
+  </script>
+</body>
+
+</html>

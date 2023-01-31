@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HTML Input Example</title>
+  <style>
+    #result {
+      font-weight: bold;
+      color: green;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="changeContent(1)">
+    Затраты на проведение обучения, инструктирования и проверок знаний по
+    вопросам охраны труда работников, руководителей и лиц ответственных за
+    обеспечение охраны труда
+  </button>
+  <button onclick="changeContent(2)">
+    Затраты на обязательное страхование работника от несчастных случаев при
+    исполнении им трудовых (служебных) обязанностей
+  </button>
+  <button onclick="changeContent(3)">
+    Затраты на обеспечение средствами коллективной защиты
+  </button>
+  <button onclick="changeContent(4)">
+    Затраты на обеспечение санитарно-бытовыми помещениями и устройствами
+  </button>
+  <button onclick="changeContent(5)">
+    Затраты на проведение оценки профессиональных рисков
+  </button>
+  <button onclick="changeContent(6)">
+    Затраты на разработку, реализацию и внедрение системы управления охраны
+    труда (СУОТ)
+  </button>
+  <br /><br />
+
+  <div id="content">
+    <form>
+      <br />
+      <h1>
+        Затраты на обеспечение безопасности и охраны труда общего характера
+      </h1>
+      <label for="input1">Количество работников в разрезе профессий: </label>
+      <input type="number" id="input1" name="input1" /><br /><br />
+      <label for="input2">Стоимость услуг по обучению в учебном центре:
+      </label>
+      <input type="number" id="input2" name="input2" />
+      <br /><br />
+      <button type="button" onclick="multiplyInputs()">Рассчитать</button>
+    </form>
+    <br />
+    <label for="result">Result:</label>
+    <span id="result"></span>
+  </div>
+
+  <script>
+    var currentContent = 1;
+    function multiplyInputs() {
+      var input1 = document.getElementById("input1").value;
+      var input2 = document.getElementById("input2").value;
+      var result = input1 * input2;
+      document.getElementById("result").innerHTML = result;
+    }
+    function multiplyInputs3() {
+      var input1 = document.getElementById("input1").value;
+      var input2 = document.getElementById("input2").value;
+      var input3 = document.getElementById("input3").value;
+      var result = input1 * input2 * input3;
+      document.getElementById("result").innerHTML = result;
+    }
+
+    const multiplyInputs6 = () => {
+      let input1 = document.getElementById("input1").value;
+      var result = input1;
+      document.getElementById("result").innerHTML = result;
+    };
+
+
+    function changeContent(contentNumber) {
+      currentContent = contentNumber;
+      if (contentNumber == 1) {
+        document.getElementById("content").innerHTML =
+          "<form>" +
+          "<h1>Затраты на проведение обучения, инструктирования и проверок знаний по вопросам охраны труда работников, руководителей и лиц ответственных за обеспечение охраны труда</h1>" +
+
+          '<label for="input1">Количество работников в разрезе профессий: </label>' +
+          '<input type="number" id="input1" name="input1"><br><br>' +
+          '<label for="input2">Стоимость услуг по обучению в учебном центре: </label>' +
+          '<input type="number" id="input2" name="input2">' +
+          "<br><br>" +
+          '<button type="button" onclick="multiplyInputs()">Рассчитать</button>' +
+          "</form>" +
+          "<br>" +
+          '<label for="result">Затраты на обучение работников: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>";
+      } else if (contentNumber == 2) {
+        document.getElementById("content").innerHTML =
+          "<form>" +
+          "<h1>Затраты на обязательное страхование работника от несчастных случаев:</h1>" +
+          '<label for="input1">Годовой фонд оплаты труда: </label>' +
+          '<input type="number" id="input1" name="input1"><br><br>' +
+          '<label for="input2">Страховой тариф в зависимости от класса профессионального риска: </label>' +
+          '<input type="number" id="input2" name="input2">' +
+          "<br><br>" +
+          '<button type="button" onclick="multiplyInputs()">Рассчитать</button>' +
+          "</form>" +
+          "<br>" +
+          '<label for="result">Стоимость услуг по обучению в учебном центре: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>";
+      } else if (contentNumber == 3) {
+        document.getElementById("content").innerHTML =
+          "<form>" +
+          "<h1>Затраты на обеспечение средствами коллективной защиты: </h1>" +
+          '<label for="input1">количество рабочих цехов, оборудуемых i-ым стандартным комплектом коллективных средств защиты: </label>' +
+          '<input type="number" id="input1" name="input1"><br><br>' +
+          '<label for="input2">Стоимость стандартного комплекта коллективных средств защиты: </label>' +
+          '<input type="number" id="input2" name="input2"><br><br>' +
+          '<label for="input3">Кол-во групп рабочих мест, оборудуемых i-ым стандартным комплектом коллективных средств защиты: </label>' +
+          '<input type="number" id="input3" name="input3">' +
+          "<br><br>" +
+          '<button type="button" onclick="multiplyInputs3()">Рассчитать</button>' +
+          "</form>" +
+          "<br>" +
+          '<label for="result">Затраты на обеспечение работников СКЗ: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>";
+      } else if (contentNumber == 4) {
+        document.getElementById("content").innerHTML =
+          "<form>" +
+          "<h1>Затраты на обеспечение санитарно-бытовыми помещениями и устройствами: </h1>" +
+          '<label for="input1">Количество приобретаемых i-го оборудования и устройств для санитарно-бытового помещения: </label>' +
+          '<input type="number" id="input1" name="input1"><br><br>' +
+          '<label for="input2">Цена i-го оборудования и устройства: </label>' +
+          '<input type="number" id="input2" name="input2"><br><br>' +
+          '<label for="input3">Кол-во санитарно-бытовых помещений (цех, служба и т.д.): </label>' +
+          '<input type="number" id="input3" name="input3">' +
+          "<br><br>" +
+          '<button type="button" onclick="multiplyInputs3()">Рассчитать</button>' +
+          "</form>" +
+          "<br>" +
+          '<label for="result">Затраты на оснащение санитарно-бытовых помещении и приобретение устройств: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>";
+      } else if (contentNumber == 5) {
+        document.getElementById("content").innerHTML =
+          "<form>" +
+          "<h1>Затраты на проведение оценки профессиональных рисков: </h1>" +
+          '<label for="input1">Стоимость услуг ОПР на 1 замер рабочего места: </label>' +
+          '<input type="number" id="input1" name="input1"><br><br>' +
+          '<label for="input2">Количество профессий (рабочих мест), подлежащие оценке: </label>' +
+          '<input type="number" id="input2" name="input2">' +
+          "<br><br>" +
+          '<button type="button" onclick="multiplyInputs()">Рассчитать</button>' +
+          "</form>" +
+          "<br>" +
+          '<label for="result">Затраты на проведение ОПР: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>";
+      } else if (contentNumber == 6) {
+        document.getElementById("content").innerHTML =
+          "<form>" +
+          "<h1>Затраты на разработку, реализацию и внедрение системы управления охраны труда (СУОТ): </h1>" +
+          '<label for="input1">Затраты: </label>' +
+          '<input type="number" id="input1" name="input1"><br><br>' +
+          '<button type="button" onclick="multiplyInputs6()">Рассчитать</button>' +
+          "</form>" +
+          "<br>" +
+          '<label for="result">Затраты: </label>' +
+          '<span id="result"></span>' +
+          "<span> тенге</span>";
+      }
+    }
+  </script>
+</body>
+
+</html>
